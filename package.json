@@ -1,0 +1,22 @@
+{
+	"name": "logomaker",
+	"version": "1.0.0",
+	"description": "文章 logo 封面图水印 watermark 的制作，基于 electron 和 canvas 。",
+	"main": "main/index.js",
+	"scripts": {
+		"start": "electron .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://gitee.com/eminoda/LogoMaker.git"
+	},
+	"keywords": [
+		"watermark"
+	],
+	"author": "eminoda",
+	"license": "ISC",
+	"dependencies": {
+		"electron": "^7.1.2"
+	}
+}
