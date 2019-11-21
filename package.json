@@ -17,6 +17,10 @@
 	"author": "eminoda",
 	"license": "ISC",
 	"dependencies": {
-		"electron": "^7.1.2"
+		"canvas": "^2.6.0",
+		"electron": "^7.1.2",
+		"electron-rebuild": "^1.8.8",
+		"reinstall": "^2.0.0",
+		"to": "^0.2.9"
 	}
 }

@@ -72,8 +72,20 @@ class ElectronWindow {
 	ipcListen() {
 		ipcMain.on('main-receiver', (event, arg) => {
 			console.log(arg); // prints "ping"
-			event.reply('replyer', 'pong');
+			// event.reply('replyer', 'pong');
 			// event.returnValue = 'pong' // sync reply
+			try {
+				let { type } = arg;
+				if (type == 'logomaker') {
+					const LogoMaker = require('./logoMaker');
+					const lm = new LogoMaker(arg.panel);
+					lm.drawPanel();
+					const base64 = lm.getBase64Url();
+					event.reply('render-receiver', base64);
+				}
+			} catch (err) {
+				console.log(err);
+			}
 		});
 	}
 }

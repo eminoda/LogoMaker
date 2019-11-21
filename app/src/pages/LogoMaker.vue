@@ -48,13 +48,15 @@ export default {
 	},
 	methods: {
 		build() {
-			console.log(this.panel);
-			console.log(this.word);
 			// ipcRenderer.sendSync
-			ipcRenderer.on('replyer', (event, arg) => {
+			ipcRenderer.on('render-receiver', (event, arg) => {
 				console.log(arg); // prints "pong"
 			});
-			ipcRenderer.send('main-receiver', this.panel);
+			ipcRenderer.send('main-receiver', {
+				type: 'logomaker',
+				panel: this.panel,
+				word: this.word
+			});
 		}
 	}
 };
