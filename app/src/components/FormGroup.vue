@@ -4,7 +4,7 @@
 			<slot name="groupName">{{ name }}</slot>
 		</div>
 		<div class="form-group">
-			<slot name="form-item"></slot>
+			<slot></slot>
 		</div>
 	</div>
 </template>
