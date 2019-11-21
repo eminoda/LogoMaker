@@ -31,8 +31,8 @@ class ElectronWindow {
 							webSecurity: self.config.window.webSecurity
 						}
 					});
-					// win.loadURL(self.config.clientUrl);
-					win.loadFile(path.join(__dirname, '../app/dist/index.html'));
+					win.loadURL(self.config.clientUrl);
+					// win.loadFile(path.join(__dirname, '../app/dist/index.html'));
 
 					win.once('ready-to-show', () => {
 						win.show();

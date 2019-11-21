@@ -6,7 +6,7 @@
 				<el-input :placeholder="placeholder" :value="value" v-bind="$attrs" v-on="inputListeners"></el-input>
 			</template>
 			<template v-if="type=='colorPicker'">
-				<el-color-picker :value="value" v-bind="$attrs" v-on="inputListeners" size="small"></el-color-picker>
+				<el-color-picker :value="value" v-bind="$attrs" v-on="inputListeners" size="medium"></el-color-picker>
 			</template>
 			<template v-else-if="type=='slider'">
 				<el-slider :value="value" v-bind="$attrs" v-on="inputListeners"></el-slider>

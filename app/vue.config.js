@@ -4,6 +4,10 @@ module.exports = {
 			electron: 'electron'
 		}
 	},
+	chainWebpack: config => {
+		// 移除 prefetch 插件
+		config.plugins.delete('prefetch');
+	},
 	publicPath: '.',
 	devServer: {
 		port: '8080',

@@ -11,6 +11,7 @@
 </template>
 
 <script>
+console.log(process.env.VUE_APP_MAIN_PATH);
 export default {
   name: 'app'
 }
