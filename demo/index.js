@@ -23,8 +23,8 @@ class LogoMaker {
 	}
 	draw() {
 		let ctx = this.ctx;
-		this.drawRect('fill', 'rgb(43,58,66)', {}, {});
-		this.drawText('Webpack', 'rgb(117,175,204)');
+		this.drawRect('fill', 'rgb(51,51,51)', {}, {});
+		this.drawText('Node.js', 'rgb(118,183,91)');
 		this.drawWaterMark();
 	}
 	drawText(text, color) {

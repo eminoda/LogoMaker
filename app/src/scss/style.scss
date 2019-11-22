@@ -16,3 +16,15 @@ body {
 		padding: 0;
 	}
 }
+
+.el-color-picker {
+	line-height: 36px;
+	.el-color-picker__trigger {
+		width: 100px;
+		height: 36px;
+	}
+}
+.el-input__inner {
+	height: 100%;
+	line-height: 36px;
+}

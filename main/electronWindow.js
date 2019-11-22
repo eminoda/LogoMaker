@@ -6,9 +6,10 @@ class ElectronWindow {
 		this.config = config;
 	}
 	async init() {
+		let self = this;
 		await this.createWindow();
 		this.registerShortcut('ctrl+f12', () => {
-			this.win.webContents.openDevTools();
+			self.win.webContents.openDevTools();
 		});
 		this.appListen();
 		this.ipcListen();

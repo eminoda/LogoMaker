@@ -1,5 +1,5 @@
 const { createCanvas } = require('canvas');
-class LogoMaker {
+export default class LogoMaker {
 	constructor(panel = {}, options = {}) {
 		this.panel = {
 			width: panel.width || 500,
@@ -28,4 +28,3 @@ class LogoMaker {
 		return this.$canvas.toDataURL('image/png');
 	}
 }
-module.exports = logoMaker;

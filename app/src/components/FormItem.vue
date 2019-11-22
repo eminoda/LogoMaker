@@ -56,9 +56,9 @@ export default {
 .form-item-wrap {
 	display: flex;
 	justify-content: center;
-	margin: 10px 20px;
+	margin: 6px 20px;
 	.text {
-		line-height: 40px;
+		line-height: 36px;
 		width: 20%;
 		text-align: right;
 		padding-right: 20px;
@@ -66,8 +66,13 @@ export default {
 	}
 	.item {
 		width: 80%;
+		height: 36px;
 		.el-switch {
-			line-height: 40px;
+			line-height: 36px;
+		}
+		.el-input {
+			line-height: 36px;
+			height: 36px;
 		}
 	}
 }
