@@ -4,7 +4,8 @@
 			<el-col :span="8">
 				<vv-form-group name="画板设置">
 					<vv-form-item label="背景色" type="colorPicker" v-model="panel.color"></vv-form-item>
-					<vv-form-item label="宽" type="slider" v-model="panel.width"></vv-form-item>
+					<!-- <vv-form-item label="宽" type="slider" v-model="panel.width"></vv-form-item> -->
+          <vv-form-item label="宽" type="number" v-model="panel.width"></vv-form-item>
 					<vv-form-item label="高" type="slider" v-model="panel.height"></vv-form-item>
 					<vv-form-item label="填充" type="switch" v-model="panel.fill"></vv-form-item>
 					<vv-form-item label="水印" type="switch" v-model="panel.watermark"></vv-form-item>
@@ -24,6 +25,7 @@
 					<vv-form-item label="文字" v-model="water.text"></vv-form-item>
 					<vv-form-item label="字体" v-model="water.font"></vv-form-item>
 					<vv-form-item label="粗体" type="switch" v-model="water.weight"></vv-form-item>
+					<vv-form-item label="定位" type="select" v-model="water.position" :options="[{ label: '左上角', value: 'leftTop' }, { label: '右下角', value: 'rightBottom' }]"></vv-form-item>
 				</vv-form-group>
 			</el-col>
 		</el-row>
@@ -59,7 +61,7 @@ export default {
         color: '#FFFFFF',
         size: 20,
         weight: false,
-        position:'rightBottom'
+        position: 'rightBottom'
       },
       dialogVisible: false,
       canvas: document.createElement('canvas')

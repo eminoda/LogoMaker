@@ -2,17 +2,25 @@
 	<div class="form-item-wrap">
 		<div class="text">{{ label }}：</div>
 		<div class="item">
-			<template v-if="type=='input'">
+			<template v-if="type == 'input'">
 				<el-input :placeholder="placeholder" :value="value" v-bind="$attrs" v-on="inputListeners"></el-input>
 			</template>
-			<template v-if="type=='colorPicker'">
+			<template v-if="type == 'number'">
+				<el-input-number :value="value" v-bind="$attrs" v-on="inputListeners" :min="1" :max="100" :label="placeholder"></el-input-number>
+			</template>
+			<template v-if="type == 'colorPicker'">
 				<el-color-picker :value="value" v-bind="$attrs" v-on="inputListeners" size="medium"></el-color-picker>
 			</template>
-			<template v-else-if="type=='slider'">
+			<template v-else-if="type == 'slider'">
 				<el-slider :value="value" v-bind="$attrs" v-on="inputListeners"></el-slider>
 			</template>
-			<template v-else-if="type=='switch'">
+			<template v-else-if="type == 'switch'">
 				<el-switch style="display: block" :value="value" v-bind="$attrs" v-on="inputListeners"></el-switch>
+			</template>
+			<template v-else-if="type == 'select'">
+				<el-select :value="value" v-bind="$attrs" v-on="inputListeners" placeholder="请选择">
+					<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"> </el-option>
+				</el-select>
 			</template>
 		</div>
 		<!-- <component v-bind:is="currentTabComponent"></component> -->
@@ -21,33 +29,34 @@
 </template>
 <script>
 export default {
-	name: 'vv-form-item',
-	data() {
-		return {};
-	},
-	props: {
-		type: {
-			type: String,
-			default: 'input'
-		},
-		value: [String, Number, Boolean],
-		label: String,
-		placeholder: {
-			type: String,
-			default: '请输入需要的值'
-		}
-	},
-	inheritAttrs: false,
-	computed: {
-		inputListeners: function() {
-			var vm = this;
-			return Object.assign({}, this.$listeners, {
-				input: function(value) {
-					vm.$emit('input', value);
-				}
-			});
-		}
-	}
+  name: 'vv-form-item',
+  data() {
+    return {};
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'input'
+    },
+    value: [String, Number, Boolean, Array],
+    label: String,
+    placeholder: {
+      type: String,
+      default: '请输入需要的值'
+    },
+    options: Array
+  },
+  inheritAttrs: false,
+  computed: {
+    inputListeners: function() {
+      var vm = this;
+      return Object.assign({}, this.$listeners, {
+        input: function(value) {
+          vm.$emit('input', value);
+        }
+      });
+    }
+  }
 };
 </script>
 

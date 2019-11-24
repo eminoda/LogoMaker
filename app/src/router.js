@@ -7,7 +7,7 @@ const Setting = () => require.ensure([], () => require('./pages/Setting.vue'), '
 Vue.use(Router);
 
 const routes = [
-	{ path: '/', redirect: '/setting' },
+	{ path: '/', redirect: '/logoMaker' },
 	{ path: '/logoMaker', component: LogoMaker },
 	{ path: '/setting', component: Setting }
 ];
