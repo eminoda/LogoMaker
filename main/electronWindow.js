@@ -1,4 +1,5 @@
-const { app, BrowserWindow, globalShortcut, ipcMain } = require('electron');
+const { app, BrowserWindow, globalShortcut, ipcMain, dialog, shell } = require('electron');
+const { File } = require('./event.js');
 const path = require('path');
 class ElectronWindow {
 	constructor(config) {
@@ -76,13 +77,17 @@ class ElectronWindow {
 			// event.reply('replyer', 'pong');
 			// event.returnValue = 'pong' // sync reply
 			try {
-				let { type } = arg;
+				let { type, fileName, dataUrl } = arg;
 				if (type == 'logomaker') {
-					const LogoMaker = require('./logoMaker');
-					const lm = new LogoMaker(arg.panel);
-					lm.drawPanel();
-					const base64 = lm.getBase64Url();
-					event.reply('render-receiver', base64);
+					let file = new File();
+					let { fileData, ext } = file.parseBase64Data(dataUrl);
+					file.saveFile(`${fileName}.${ext}`, fileData);
+					event.reply('render-receiver', { success: true });
+				}
+				if (type == 'showDownloadFiles') {
+					let filePaths = [];
+					shell.showItemInFolder(path.join(__dirname, '../download'));
+					event.reply('render-receiver', { success: true, filePaths });
 				}
 			} catch (err) {
 				console.log(err);

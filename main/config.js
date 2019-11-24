@@ -1,8 +1,8 @@
 module.exports = {
 	clientUrl: 'http://127.0.0.1:8080',
 	window: {
-		width: 1200,
-		height: 700,
+		width: 1080,
+		height: 600,
 		backgroundColor: '#F3F3F3',
 		devTools: true,
 		webSecurity: true,

@@ -1,7 +1,7 @@
 <template>
 	<el-header>
 		<div class="header-wrap">
-			<div v-for="(item, index) in tabs" :key="index" class="tab-item" :class="[{ 'tab-active': active == item.to.path }]">
+			<div v-for="(item, index) in tabs" :key="index" class="tab-item" :class="[{ 'tab-active': active == item.to.path }]" v-go="item.to">
 				<div><i :class="item.icon"></i></div>
 				<div class="text">{{ item.text }}</div>
 			</div>
@@ -12,15 +12,16 @@
 export default {
   name: 'vv-header',
   data() {
+    console.log(this.$router.currentRoute.path);
     return {
       active: this.$router.currentRoute.path,
       tabs: [{
-        to: { path: '/' },
+        to: { path: '/logoMaker' },
         text: 'Logo 图制作',
         icon: 'el-icon-edit-outline'
       }, {
-        to: { path: 'watermark' },
-        text: '水印设置',
+        to: { path: '/setting' },
+        text: '设置',
         icon: 'el-icon-picture'
       }]
     };

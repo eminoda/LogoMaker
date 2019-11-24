@@ -7,3 +7,12 @@ Vue.directive('href', {
 		});
 	}
 });
+Vue.directive('go', {
+	bind: function(el, binding, vnode) {
+		el.addEventListener('click', function() {
+			vnode.context.$router.push(binding.value).catch(err => {
+				err;
+			});
+		});
+	}
+});
