@@ -6,7 +6,6 @@ class LogoMaker {
 			color: panel.color || '#FFC90E', // 默认 js 的黄色
 			type: panel.fill === true ? 'fill' : 'stroke'
 		};
-		console.log(this.panel);
 		this.word = {
 			text: word.text || 'JS',
 			font: word.font || '',

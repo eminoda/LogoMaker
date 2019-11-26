@@ -13,7 +13,6 @@ let context = require.context('./components', true, /^\.\/.*vue$/);
 context.keys().map(item => {
 	let component = context(item).default;
 	Vue.component(component.name, component);
-	console.log(component.name + ` is Loaded`);
 });
 Vue.use(ElementUI);
 new Vue({

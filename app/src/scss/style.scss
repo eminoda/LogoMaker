@@ -36,7 +36,8 @@ body {
 .el-input {
 	width: 40%;
 }
-.el-input-number {
+.el-input-number,
+.el-color-dropdown {
 	.el-input {
 		width: 100%;
 	}

@@ -61,9 +61,6 @@ export default {
 			this.canvas = lm.draw();
 			this.dialogVisible = true;
 		},
-		onDrawFinish(data) {
-			console.log(data);
-		},
 		handleClose(data) {
 			this.dialogVisible = data.value;
 			if (data.status == 'download') {
