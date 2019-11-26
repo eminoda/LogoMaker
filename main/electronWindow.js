@@ -85,13 +85,24 @@ class ElectronWindow {
 					file.saveFile(`${fileName}.${ext}`, fileData);
 					event.reply('render-receiver', { success: true });
 				}
-				if (type == 'showDownloadFiles') {
+				if (type == 'openFileDirectory') {
 					let filePaths = [];
-					shell.showItemInFolder(path.join(__dirname, '../download'));
-					event.reply('render-receiver', { success: true, filePaths });
+					filePaths = dialog.showOpenDialogSync({
+						properties: ['openDirectory']
+					});
+					event.reply('render-receiver', { success: true, type, filePaths });
 				}
 				if (type == 'logoMakerBaseOptions') {
 					event.reply('render-receiver', { success: true, options: config.logoMakerBaseSetting });
+				}
+				if (type == 'showSystemSetting') {
+					event.reply('render-receiver', {
+						success: true,
+						type,
+						setting: {
+							userPath: app.getPath('userData')
+						}
+					});
 				}
 			} catch (err) {
 				console.log(err);
