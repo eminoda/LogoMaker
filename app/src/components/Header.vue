@@ -1,8 +1,16 @@
 <template>
 	<el-header>
 		<div class="header-wrap">
-			<div v-for="(item, index) in tabs" :key="index" class="tab-item" :class="[{ 'tab-active': active == item.to.path }]" v-go="item.to">
-				<div><i :class="item.icon"></i></div>
+			<div
+				class="tab-item"
+				v-for="(item, index) in tabs"
+				:key="index"
+				:class="[{ 'tab-active': active == item.name }]"
+				@click="selectTab(item)"
+			>
+				<div>
+					<i :class="item.icon"></i>
+				</div>
 				<div class="text">{{ item.text }}</div>
 			</div>
 		</div>
@@ -10,22 +18,34 @@
 </template>
 <script>
 export default {
-  name: 'vv-header',
-  data() {
-    console.log(this.$router.currentRoute.path);
-    return {
-      active: this.$router.currentRoute.path,
-      tabs: [{
-        to: { path: '/logoMaker' },
-        text: 'Logo 图制作',
-        icon: 'el-icon-edit-outline'
-      }, {
-        to: { path: '/setting' },
-        text: '设置',
-        icon: 'el-icon-picture'
-      }]
-    };
-  }
+	name: 'vv-header',
+	data() {
+		return {
+			active: this.$router.currentRoute.path.indexOf('logMaker') !== -1 ? 'logMaker' : 'setting',
+			tabs: [
+				{
+					name: 'logMaker',
+					route: { path: '/logoMaker/panel' },
+					text: 'Logo 图制作',
+					icon: 'el-icon-edit-outline'
+				},
+				{
+					name: 'setting',
+					route: { path: '/setting' },
+					text: '设置',
+					icon: 'el-icon-picture'
+				}
+			]
+		};
+	},
+	methods: {
+		selectTab(item) {
+			this.active = item.name;
+			this.$router.push(item.route).catch(err => {
+				err;
+			});
+		}
+	}
 };
 </script>
 

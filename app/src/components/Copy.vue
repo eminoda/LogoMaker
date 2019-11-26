@@ -3,9 +3,10 @@
 </template>
 <script>
 export default {
-  name: 'vv-copy',
-  data() {
-  }
+	name: 'vv-copy',
+	data() {
+		return {};
+	}
 };
 </script>
 

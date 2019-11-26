@@ -1,5 +1,6 @@
 const { app, BrowserWindow, globalShortcut, ipcMain, dialog, shell } = require('electron');
 const { File } = require('./event.js');
+const config = require('./config');
 const path = require('path');
 class ElectronWindow {
 	constructor(config) {
@@ -88,6 +89,9 @@ class ElectronWindow {
 					let filePaths = [];
 					shell.showItemInFolder(path.join(__dirname, '../download'));
 					event.reply('render-receiver', { success: true, filePaths });
+				}
+				if (type == 'logoMakerBaseOptions') {
+					event.reply('render-receiver', { success: true, options: config.logoMakerBaseSetting });
 				}
 			} catch (err) {
 				console.log(err);

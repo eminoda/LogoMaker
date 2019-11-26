@@ -8,5 +8,11 @@ module.exports = {
 		webSecurity: true,
 		allowRunningInsecureContent: true,
 		enableRemoteModule: true
+	},
+	logoMakerBaseSetting: {
+		panel: {
+			width: 500,
+			height: 230
+		}
 	}
 };

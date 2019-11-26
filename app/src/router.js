@@ -4,11 +4,13 @@ import Router from 'vue-router';
 const LogoMaker = () => require.ensure([], () => require('./pages/LogoMaker.vue'), 'LogoMaker');
 const Setting = () => require.ensure([], () => require('./pages/Setting.vue'), 'Setting');
 const Panel = () => require.ensure([], () => require('./pages/logoMaker/Panel.vue'), 'Panel');
+const Word = () => require.ensure([], () => require('./pages/logoMaker/Word.vue'), 'Word');
+const Water = () => require.ensure([], () => require('./pages/logoMaker/Water.vue'), 'Water');
 
 Vue.use(Router);
 
 const routes = [
-	{ path: '/', redirect: '/logoMaker' },
+	{ path: '/', redirect: '/logoMaker/panel' },
 	{
 		path: '/logoMaker',
 		component: LogoMaker,
@@ -16,6 +18,14 @@ const routes = [
 			{
 				path: 'panel',
 				component: Panel
+			},
+			{
+				path: 'word',
+				component: Word
+			},
+			{
+				path: 'water',
+				component: Water
 			}
 		]
 	},

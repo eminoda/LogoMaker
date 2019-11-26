@@ -16,27 +16,28 @@ body {
 		padding: 0;
 	}
 }
-
+.el-main {
+	padding-bottom: 100px;
+}
+.el-footer {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+}
 .el-color-picker {
-	// line-height: 36px;
 	.el-color-picker__trigger {
 		width: 100px;
-		// height: 36px;
-	}
-}
-.el-input {
-	.el-input__inner {
-		// height: 100%;
-		// line-height: 36px;
-	}
-}
-
-.el-select {
-	.el-input__inner {
-		// height: 36px;
-		// line-height: 36px;
 	}
 }
 .el-dialog__body {
 	padding: 10px 5px 20px;
+}
+.el-slider,
+.el-input {
+	width: 40%;
+}
+.el-input-number {
+	.el-input {
+		width: 100%;
+	}
 }
