@@ -3,27 +3,24 @@
 		<div class="footer-wrap">
 			<span>友情链接：</span>
 			<span v-for="(item, index) in tabs" :key="index" class="tab-item">
-				<span class="text">{{ item.text }}</span>
+				<span class="text" @click="openWindows(item.url)">{{ item.text }}</span>
 			</span>
 		</div>
 	</el-footer>
 </template>
 <script>
+import { TEXT } from '../constant';
 export default {
 	name: 'vv-footer',
 	data() {
 		return {
-			tabs: [
-				{
-					to: { path: '/' },
-					text: '我的头条号「前端雨爸」'
-				},
-				{
-					to: { path: 'watermark' },
-					text: '我的博客'
-				}
-			]
+			tabs: TEXT.FOOT_URLS
 		};
+	},
+	methods: {
+		openWindows(url) {
+			window.open(url, '_blank','nodeIntegration=no');
+		}
 	}
 };
 </script>
